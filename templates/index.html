@@ -1,0 +1,30 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Registration</title>
+    </head>
+    <body>
+        <form action="/processreg" method="post">
+            <input type="hidden" name="action" value="register">
+            First Name<input type="text" name="first_name">
+            <br>
+            Last Name<input type="text" name="last_name">
+            <br>
+            Email: <input type="email" name="email">
+            <br>
+            Password: <input type="password" name="password">
+            <br>
+            Confirm Password: <input type="password" name="confirm_password">
+            <br>
+            <input type="submit" value="Register">
+        </form>
+        <p> Already a user? <a href='/login'>Click Here</a> to login</p>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+                <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </body>
+</html>
